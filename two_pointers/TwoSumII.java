@@ -1,16 +1,12 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TwoSum {
+public class TwoSumII {
     public int[] twoSum(int[] nums, int target) {
         List<Integer> numbers = Arrays.stream(nums).boxed().collect(Collectors.toList());
 
-        List<Integer> sorted = new ArrayList<>(numbers);
-        sorted.sort(null);
-
-        for (Integer num : sorted) {
+        for (Integer num : numbers) {
             int pair = target - num;
 
             if (pair == num) {
@@ -19,10 +15,10 @@ public class TwoSum {
                     return indices;
                 }
 
-                break;
+                continue;
             }
 
-            if (binarySearch(sorted, pair)) {
+            if (binarySearch(numbers, pair)) {
                 int[] indices = {numbers.indexOf(num), numbers.lastIndexOf(pair)};
                 return indices;
             }
@@ -52,11 +48,8 @@ public class TwoSum {
     }
 
     public static void main(String[] args) {
-        TwoSum s = new TwoSum();
-        s.twoSum(new int[]{3, 2, 3}, 6);
-        s.twoSum(new int[]{2, 7, 11, 15}, 9);
-        s.twoSum(new int[]{3, 3}, 6);
-        s.twoSum(new int[]{3, 2, 4}, 6);
+        TwoSumII t = new TwoSumII();
 
+        t.twoSum(new int[]{3, 2, 4}, 6);
     }
 }
