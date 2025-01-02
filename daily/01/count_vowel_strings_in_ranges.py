@@ -10,7 +10,7 @@ as the key's) and add to a list.
 from collections import defaultdict
 
 def vowelStrings(words: list[str], queries: list[list[int]]) -> list[int]:
-    vowel_running_totals = defaultdict
+    vowel_running_totals = defaultdict(int)
 
     def isVowelStr(word: str) -> bool:
         def isVowel(letter: str) -> bool:
