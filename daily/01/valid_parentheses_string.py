@@ -31,8 +31,10 @@ def isValid(s: str, locked: str) -> bool:
                     if i in unlocked:
                         stack.append((i, '('))
                         unlocked.remove(i)
+                    # The issue is that this is too greedy! Due to the locks,
+                    # it might be important to NOT flip such that the following parenthesis
+                    # can work.
                     else:
-                        print(i, stack)
                         return False
                 else:
                     stack.pop()
@@ -85,11 +87,6 @@ def isValidCorrect(s: str, locked: str):
             return False
 
     return True
-
-
-
-
-
 
 print(isValidCorrect("))()))", "010100"))
 print(isValidCorrect("()()", "0000"))
