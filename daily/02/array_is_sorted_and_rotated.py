@@ -27,10 +27,23 @@ def check(nums: list[int]) -> bool:
     
     return isSorted(nums)
 
+def checkOptimised(nums: list[int]) -> bool:
+    n = len(nums)
+
+    numInversion = 0
+    for i in range(n - 1):
+        if nums[i] > nums[i + 1]:
+            numInversion += 1
+
+    if nums[-1] > nums[0]:
+        numInversion += 1
+
+    return numInversion <= 1
+
 print(check([3,4,5,1,2]))
 print(check([2,1,3,4]))
 print(check([1,2,3]))
 print(check([6,10,6]))
-print(check([[7,9,1,1,1,3]]))
+print(check([7,9,1,1,1,3]))
 
 
