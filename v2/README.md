@@ -20,3 +20,5 @@ Topic #2: Linked Lists
  - Works well to `curr = head` (and `prev = None`).
  - When initialising the `head` is conditional, make it a dummy ListNode
    and return `head.next` instead.
+ - Instead of using `curr.val`, opt to map it to a variable 
+   (i.e. `v1 = curr.val if curr else 0`) to prevent excessive branching
